@@ -143,6 +143,7 @@ namespace WindowsFormsApp1
         {
             frmBolumGiris frm = new frmBolumGiris();
             frm.ShowDialog();
+
         }
     }
 }
