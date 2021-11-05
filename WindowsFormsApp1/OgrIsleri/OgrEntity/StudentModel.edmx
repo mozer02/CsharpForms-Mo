@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="StudentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="StudentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tbl_sehirler">
           <Key>
             <PropertyRef Name="id" />
@@ -18,6 +18,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BolumAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="isActive" Type="bit" />
         </EntityType>
         <EntityType Name="tblOgrBilgi">
           <Key>
@@ -68,8 +69,7 @@
             <End Role="tblOgrBilgi" EntitySet="tblOgrBilgi" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="StudentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -88,6 +88,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BolumAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblOgrBilgi" Relationship="Self.FK_tblOgrBilgi_tblDeparments" FromRole="tblDeparments" ToRole="tblOgrBilgi" />
+          <Property Name="isActive" Type="Boolean" />
         </EntityType>
         <EntityType Name="tblOgrBilgi">
           <Key>
@@ -157,6 +158,7 @@
           <EntitySetMapping Name="tblDeparments">
             <EntityTypeMapping TypeName="StudentModel.tblDeparments">
               <MappingFragment StoreEntitySet="tblDeparments">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="BolumAdi" ColumnName="BolumAdi" />
               </MappingFragment>

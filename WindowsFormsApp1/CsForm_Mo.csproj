@@ -118,6 +118,7 @@
     <Compile Include="Entity\Territories.cs">
       <DependentUpon>NorthwindModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fonksiyonlar\Mesajlar.cs" />
     <Compile Include="FormIslemleri\frmAl_Cons.cs">
       <SubType>Form</SubType>
     </Compile>
