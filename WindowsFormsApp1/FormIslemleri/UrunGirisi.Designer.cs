@@ -73,7 +73,7 @@ namespace WindowsFormsApp1.FormIslemleri
             this.txt_urunFiyat.Location = new System.Drawing.Point(355, 166);
             this.txt_urunFiyat.Name = "txt_urunFiyat";
             this.txt_urunFiyat.Size = new System.Drawing.Size(172, 20);
-            this.txt_urunFiyat.TabIndex = 1;
+            this.txt_urunFiyat.TabIndex = 2;
             // 
             // label2
             // 
@@ -100,7 +100,7 @@ namespace WindowsFormsApp1.FormIslemleri
             this.btn_gonder.Location = new System.Drawing.Point(468, 208);
             this.btn_gonder.Name = "btn_gonder";
             this.btn_gonder.Size = new System.Drawing.Size(59, 30);
-            this.btn_gonder.TabIndex = 3;
+            this.btn_gonder.TabIndex = 4;
             this.btn_gonder.Text = "Gönder";
             this.btn_gonder.UseVisualStyleBackColor = true;
             this.btn_gonder.Click += new System.EventHandler(this.btn_gonder_Click);

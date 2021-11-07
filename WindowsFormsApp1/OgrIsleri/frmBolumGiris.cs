@@ -14,7 +14,7 @@ namespace WindowsFormsApp1.OgrIsleri
 {
     public partial class frmBolumGiris : Form
     {
-        readonly StudentEntities sdb = new StudentEntities();
+        readonly StudentsEntities sdb = new StudentsEntities();
         Mesajlar m = new Mesajlar();
 
         private int secimId = -1;

@@ -39,6 +39,12 @@ namespace WindowsFormsApp1
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.gb_Sol = new System.Windows.Forms.GroupBox();
+            this.pnl_1 = new System.Windows.Forms.Panel();
+            this.btn_urunListele = new System.Windows.Forms.Button();
+            this.btn_urunGiris = new System.Windows.Forms.Button();
+            this.btn_gonderCons = new System.Windows.Forms.Button();
+            this.btn_gonderProp = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnl_7 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.pnl_6 = new System.Windows.Forms.Panel();
@@ -50,24 +56,19 @@ namespace WindowsFormsApp1
             this.pnl_3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.pnl_2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pnl_1 = new System.Windows.Forms.Panel();
-            this.btn_urunListele = new System.Windows.Forms.Button();
-            this.btn_urunGiris = new System.Windows.Forms.Button();
-            this.btn_gonderCons = new System.Windows.Forms.Button();
-            this.btn_gonderProp = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btn_Collaps = new System.Windows.Forms.Button();
             this.btn_Departmens = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btn_Collaps = new System.Windows.Forms.Button();
+            this.btn_ogrBilgi = new System.Windows.Forms.Button();
             this.pnl_ust.SuspendLayout();
             this.gb_Sol.SuspendLayout();
+            this.pnl_1.SuspendLayout();
             this.pnl_7.SuspendLayout();
             this.pnl_6.SuspendLayout();
             this.pnl_5.SuspendLayout();
             this.pnl_4.SuspendLayout();
             this.pnl_3.SuspendLayout();
             this.pnl_2.SuspendLayout();
-            this.pnl_1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_ust
@@ -187,6 +188,72 @@ namespace WindowsFormsApp1
             this.gb_Sol.Text = "***";
             this.gb_Sol.Visible = false;
             // 
+            // pnl_1
+            // 
+            this.pnl_1.BackColor = System.Drawing.Color.Silver;
+            this.pnl_1.Controls.Add(this.btn_urunListele);
+            this.pnl_1.Controls.Add(this.btn_urunGiris);
+            this.pnl_1.Controls.Add(this.btn_gonderCons);
+            this.pnl_1.Controls.Add(this.btn_gonderProp);
+            this.pnl_1.Controls.Add(this.label1);
+            this.pnl_1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnl_1.Location = new System.Drawing.Point(1023, 16);
+            this.pnl_1.Name = "pnl_1";
+            this.pnl_1.Size = new System.Drawing.Size(170, 546);
+            this.pnl_1.TabIndex = 0;
+            this.pnl_1.Visible = false;
+            // 
+            // btn_urunListele
+            // 
+            this.btn_urunListele.Location = new System.Drawing.Point(3, 129);
+            this.btn_urunListele.Name = "btn_urunListele";
+            this.btn_urunListele.Size = new System.Drawing.Size(164, 28);
+            this.btn_urunListele.TabIndex = 2;
+            this.btn_urunListele.Text = "Ürün Listeleme";
+            this.btn_urunListele.UseVisualStyleBackColor = true;
+            this.btn_urunListele.Click += new System.EventHandler(this.btn_urunListele_Click);
+            // 
+            // btn_urunGiris
+            // 
+            this.btn_urunGiris.Location = new System.Drawing.Point(3, 95);
+            this.btn_urunGiris.Name = "btn_urunGiris";
+            this.btn_urunGiris.Size = new System.Drawing.Size(164, 28);
+            this.btn_urunGiris.TabIndex = 2;
+            this.btn_urunGiris.Text = "Ürün Girişi";
+            this.btn_urunGiris.UseVisualStyleBackColor = true;
+            this.btn_urunGiris.Click += new System.EventHandler(this.btn_urunGiris_Click);
+            // 
+            // btn_gonderCons
+            // 
+            this.btn_gonderCons.Location = new System.Drawing.Point(3, 61);
+            this.btn_gonderCons.Name = "btn_gonderCons";
+            this.btn_gonderCons.Size = new System.Drawing.Size(164, 28);
+            this.btn_gonderCons.TabIndex = 2;
+            this.btn_gonderCons.Text = "Veri Gönder (Cons)";
+            this.btn_gonderCons.UseVisualStyleBackColor = true;
+            this.btn_gonderCons.Click += new System.EventHandler(this.btn_gonderCons_Click);
+            // 
+            // btn_gonderProp
+            // 
+            this.btn_gonderProp.Location = new System.Drawing.Point(3, 27);
+            this.btn_gonderProp.Name = "btn_gonderProp";
+            this.btn_gonderProp.Size = new System.Drawing.Size(164, 28);
+            this.btn_gonderProp.TabIndex = 1;
+            this.btn_gonderProp.Text = "Veri Gönder (Prop)";
+            this.btn_gonderProp.UseVisualStyleBackColor = true;
+            this.btn_gonderProp.Click += new System.EventHandler(this.btn_gonderProp_Click);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Wheat;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(170, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Form İşlemleri";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pnl_7
             // 
             this.pnl_7.BackColor = System.Drawing.Color.Silver;
@@ -300,6 +367,7 @@ namespace WindowsFormsApp1
             // pnl_2
             // 
             this.pnl_2.BackColor = System.Drawing.Color.Silver;
+            this.pnl_2.Controls.Add(this.btn_ogrBilgi);
             this.pnl_2.Controls.Add(this.btn_Departmens);
             this.pnl_2.Controls.Add(this.label2);
             this.pnl_2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -308,6 +376,16 @@ namespace WindowsFormsApp1
             this.pnl_2.Size = new System.Drawing.Size(170, 546);
             this.pnl_2.TabIndex = 1;
             this.pnl_2.Visible = false;
+            // 
+            // btn_Departmens
+            // 
+            this.btn_Departmens.Location = new System.Drawing.Point(10, 27);
+            this.btn_Departmens.Name = "btn_Departmens";
+            this.btn_Departmens.Size = new System.Drawing.Size(154, 38);
+            this.btn_Departmens.TabIndex = 1;
+            this.btn_Departmens.Text = "Bölüm Giriş";
+            this.btn_Departmens.UseVisualStyleBackColor = true;
+            this.btn_Departmens.Click += new System.EventHandler(this.btn_Departmens_Click);
             // 
             // label2
             // 
@@ -319,72 +397,6 @@ namespace WindowsFormsApp1
             this.label2.TabIndex = 0;
             this.label2.Text = "Panel2";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnl_1
-            // 
-            this.pnl_1.BackColor = System.Drawing.Color.Silver;
-            this.pnl_1.Controls.Add(this.btn_urunListele);
-            this.pnl_1.Controls.Add(this.btn_urunGiris);
-            this.pnl_1.Controls.Add(this.btn_gonderCons);
-            this.pnl_1.Controls.Add(this.btn_gonderProp);
-            this.pnl_1.Controls.Add(this.label1);
-            this.pnl_1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnl_1.Location = new System.Drawing.Point(1023, 16);
-            this.pnl_1.Name = "pnl_1";
-            this.pnl_1.Size = new System.Drawing.Size(170, 546);
-            this.pnl_1.TabIndex = 0;
-            this.pnl_1.Visible = false;
-            // 
-            // btn_urunListele
-            // 
-            this.btn_urunListele.Location = new System.Drawing.Point(3, 129);
-            this.btn_urunListele.Name = "btn_urunListele";
-            this.btn_urunListele.Size = new System.Drawing.Size(164, 28);
-            this.btn_urunListele.TabIndex = 2;
-            this.btn_urunListele.Text = "Ürün Listeleme";
-            this.btn_urunListele.UseVisualStyleBackColor = true;
-            this.btn_urunListele.Click += new System.EventHandler(this.btn_urunListele_Click);
-            // 
-            // btn_urunGiris
-            // 
-            this.btn_urunGiris.Location = new System.Drawing.Point(3, 95);
-            this.btn_urunGiris.Name = "btn_urunGiris";
-            this.btn_urunGiris.Size = new System.Drawing.Size(164, 28);
-            this.btn_urunGiris.TabIndex = 2;
-            this.btn_urunGiris.Text = "Ürün Girişi";
-            this.btn_urunGiris.UseVisualStyleBackColor = true;
-            this.btn_urunGiris.Click += new System.EventHandler(this.btn_urunGiris_Click);
-            // 
-            // btn_gonderCons
-            // 
-            this.btn_gonderCons.Location = new System.Drawing.Point(3, 61);
-            this.btn_gonderCons.Name = "btn_gonderCons";
-            this.btn_gonderCons.Size = new System.Drawing.Size(164, 28);
-            this.btn_gonderCons.TabIndex = 2;
-            this.btn_gonderCons.Text = "Veri Gönder (Cons)";
-            this.btn_gonderCons.UseVisualStyleBackColor = true;
-            this.btn_gonderCons.Click += new System.EventHandler(this.btn_gonderCons_Click);
-            // 
-            // btn_gonderProp
-            // 
-            this.btn_gonderProp.Location = new System.Drawing.Point(3, 27);
-            this.btn_gonderProp.Name = "btn_gonderProp";
-            this.btn_gonderProp.Size = new System.Drawing.Size(164, 28);
-            this.btn_gonderProp.TabIndex = 1;
-            this.btn_gonderProp.Text = "Veri Gönder (Prop)";
-            this.btn_gonderProp.UseVisualStyleBackColor = true;
-            this.btn_gonderProp.Click += new System.EventHandler(this.btn_gonderProp_Click);
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Wheat;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Form İşlemleri";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_Collaps
             // 
@@ -398,15 +410,15 @@ namespace WindowsFormsApp1
             this.btn_Collaps.UseVisualStyleBackColor = true;
             this.btn_Collaps.Click += new System.EventHandler(this.btn_Collaps_Click);
             // 
-            // btn_Departmens
+            // btn_ogrBilgi
             // 
-            this.btn_Departmens.Location = new System.Drawing.Point(10, 27);
-            this.btn_Departmens.Name = "btn_Departmens";
-            this.btn_Departmens.Size = new System.Drawing.Size(154, 38);
-            this.btn_Departmens.TabIndex = 1;
-            this.btn_Departmens.Text = "Bölüm Giriş";
-            this.btn_Departmens.UseVisualStyleBackColor = true;
-            this.btn_Departmens.Click += new System.EventHandler(this.btn_Departmens_Click);
+            this.btn_ogrBilgi.Location = new System.Drawing.Point(10, 71);
+            this.btn_ogrBilgi.Name = "btn_ogrBilgi";
+            this.btn_ogrBilgi.Size = new System.Drawing.Size(154, 38);
+            this.btn_ogrBilgi.TabIndex = 2;
+            this.btn_ogrBilgi.Text = "Öğrenci Bilgi Giriş";
+            this.btn_ogrBilgi.UseVisualStyleBackColor = true;
+            this.btn_ogrBilgi.Click += new System.EventHandler(this.btn_ogrBilgi_Click);
             // 
             // AnaForm
             // 
@@ -423,13 +435,13 @@ namespace WindowsFormsApp1
             this.Load += new System.EventHandler(this.AnaForm_Load);
             this.pnl_ust.ResumeLayout(false);
             this.gb_Sol.ResumeLayout(false);
+            this.pnl_1.ResumeLayout(false);
             this.pnl_7.ResumeLayout(false);
             this.pnl_6.ResumeLayout(false);
             this.pnl_5.ResumeLayout(false);
             this.pnl_4.ResumeLayout(false);
             this.pnl_3.ResumeLayout(false);
             this.pnl_2.ResumeLayout(false);
-            this.pnl_1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -466,6 +478,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btn_urunListele;
         private System.Windows.Forms.Button btn_urunGiris;
         private System.Windows.Forms.Button btn_Departmens;
+        private System.Windows.Forms.Button btn_ogrBilgi;
     }
 }
 

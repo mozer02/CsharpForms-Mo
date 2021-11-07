@@ -13,10 +13,10 @@ namespace WindowsFormsApp1.OgrIsleri.OgrEntity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class StudentEntities : DbContext
+    public partial class StudentsEntities : DbContext
     {
-        public StudentEntities()
-            : base("name=StudentEntities")
+        public StudentsEntities()
+            : base("name=StudentsEntities")
         {
         }
     

@@ -145,5 +145,11 @@ namespace WindowsFormsApp1
             frm.ShowDialog();
 
         }
+
+        private void btn_ogrBilgi_Click(object sender, EventArgs e)
+        {
+            frmOgrBilgiGiris frm = new frmOgrBilgiGiris();
+            frm.ShowDialog();
+        }
     }
 }

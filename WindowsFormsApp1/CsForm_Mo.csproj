@@ -162,6 +162,12 @@
     <Compile Include="OgrIsleri\frmBolumGiris.Designer.cs">
       <DependentUpon>frmBolumGiris.cs</DependentUpon>
     </Compile>
+    <Compile Include="OgrIsleri\frmOgrBilgiGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OgrIsleri\frmOgrBilgiGiris.Designer.cs">
+      <DependentUpon>frmOgrBilgiGiris.cs</DependentUpon>
+    </Compile>
     <Compile Include="OgrIsleri\OgrEntity\StudentModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OgrIsleri\frmBolumGiris.resx">
       <DependentUpon>frmBolumGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OgrIsleri\frmOgrBilgiGiris.resx">
+      <DependentUpon>frmOgrBilgiGiris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -265,6 +274,7 @@
       <DependentUpon>StudentModel.edmx</DependentUpon>
       <LastGenOutput>StudentModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="OgrIsleri\OgrEntity\StudentModel.edmx.sql" />
     <Content Include="OgrIsleri\OgrEntity\StudentModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>StudentModel.edmx</DependentUpon>
