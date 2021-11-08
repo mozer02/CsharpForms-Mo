@@ -141,15 +141,15 @@ namespace WindowsFormsApp1
 
         private void btn_Departmens_Click(object sender, EventArgs e)
         {
-            frmBolumGiris frm = new frmBolumGiris();
-            frm.ShowDialog();
+            frmBolumGiris departmans = new frmBolumGiris();
+            departmans.ShowDialog();
 
         }
 
         private void btn_ogrBilgi_Click(object sender, EventArgs e)
         {
-            frmOgrBilgiGiris frm = new frmOgrBilgiGiris();
-            frm.ShowDialog();
+            frmOgrBilgiGiris ogrbilgi = new frmOgrBilgiGiris();
+            ogrbilgi.ShowDialog();
         }
     }
 }

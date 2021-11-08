@@ -56,10 +56,10 @@ namespace WindowsFormsApp1
             this.pnl_3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.pnl_2 = new System.Windows.Forms.Panel();
+            this.btn_ogrBilgi = new System.Windows.Forms.Button();
             this.btn_Departmens = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Collaps = new System.Windows.Forms.Button();
-            this.btn_ogrBilgi = new System.Windows.Forms.Button();
             this.pnl_ust.SuspendLayout();
             this.gb_Sol.SuspendLayout();
             this.pnl_1.SuspendLayout();
@@ -377,6 +377,16 @@ namespace WindowsFormsApp1
             this.pnl_2.TabIndex = 1;
             this.pnl_2.Visible = false;
             // 
+            // btn_ogrBilgi
+            // 
+            this.btn_ogrBilgi.Location = new System.Drawing.Point(10, 71);
+            this.btn_ogrBilgi.Name = "btn_ogrBilgi";
+            this.btn_ogrBilgi.Size = new System.Drawing.Size(154, 38);
+            this.btn_ogrBilgi.TabIndex = 2;
+            this.btn_ogrBilgi.Text = "Öğrenci Bilgi Giriş";
+            this.btn_ogrBilgi.UseVisualStyleBackColor = true;
+            this.btn_ogrBilgi.Click += new System.EventHandler(this.btn_ogrBilgi_Click);
+            // 
             // btn_Departmens
             // 
             this.btn_Departmens.Location = new System.Drawing.Point(10, 27);
@@ -409,16 +419,6 @@ namespace WindowsFormsApp1
             this.btn_Collaps.Text = "GİZLİ";
             this.btn_Collaps.UseVisualStyleBackColor = true;
             this.btn_Collaps.Click += new System.EventHandler(this.btn_Collaps_Click);
-            // 
-            // btn_ogrBilgi
-            // 
-            this.btn_ogrBilgi.Location = new System.Drawing.Point(10, 71);
-            this.btn_ogrBilgi.Name = "btn_ogrBilgi";
-            this.btn_ogrBilgi.Size = new System.Drawing.Size(154, 38);
-            this.btn_ogrBilgi.TabIndex = 2;
-            this.btn_ogrBilgi.Text = "Öğrenci Bilgi Giriş";
-            this.btn_ogrBilgi.UseVisualStyleBackColor = true;
-            this.btn_ogrBilgi.Click += new System.EventHandler(this.btn_ogrBilgi_Click);
             // 
             // AnaForm
             // 

@@ -30,6 +30,7 @@ namespace WindowsFormsApp1.OgrIsleri
         private void InitializeComponent()
         {
             this.sBolumler = new System.Windows.Forms.SplitContainer();
+            this.rb_Tum = new System.Windows.Forms.RadioButton();
             this.rb_Pasif = new System.Windows.Forms.RadioButton();
             this.rb_Aktif = new System.Windows.Forms.RadioButton();
             this.cmb_Control = new System.Windows.Forms.ComboBox();
@@ -41,7 +42,6 @@ namespace WindowsFormsApp1.OgrIsleri
             this.txt_bolumAdi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.liste = new System.Windows.Forms.DataGridView();
-            this.rb_Tum = new System.Windows.Forms.RadioButton();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BolumAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -81,6 +81,19 @@ namespace WindowsFormsApp1.OgrIsleri
             this.sBolumler.Size = new System.Drawing.Size(404, 361);
             this.sBolumler.SplitterDistance = 134;
             this.sBolumler.TabIndex = 0;
+            // 
+            // rb_Tum
+            // 
+            this.rb_Tum.AutoSize = true;
+            this.rb_Tum.Checked = true;
+            this.rb_Tum.Location = new System.Drawing.Point(209, 102);
+            this.rb_Tum.Name = "rb_Tum";
+            this.rb_Tum.Size = new System.Drawing.Size(52, 17);
+            this.rb_Tum.TabIndex = 10;
+            this.rb_Tum.TabStop = true;
+            this.rb_Tum.Text = "Tümü";
+            this.rb_Tum.UseVisualStyleBackColor = true;
+            this.rb_Tum.CheckedChanged += new System.EventHandler(this.rb_Tum_CheckedChanged);
             // 
             // rb_Pasif
             // 
@@ -207,19 +220,6 @@ namespace WindowsFormsApp1.OgrIsleri
             this.liste.Size = new System.Drawing.Size(400, 219);
             this.liste.TabIndex = 0;
             this.liste.DoubleClick += new System.EventHandler(this.liste_DoubleClick);
-            // 
-            // rb_Tum
-            // 
-            this.rb_Tum.AutoSize = true;
-            this.rb_Tum.Checked = true;
-            this.rb_Tum.Location = new System.Drawing.Point(209, 102);
-            this.rb_Tum.Name = "rb_Tum";
-            this.rb_Tum.Size = new System.Drawing.Size(52, 17);
-            this.rb_Tum.TabIndex = 10;
-            this.rb_Tum.TabStop = true;
-            this.rb_Tum.Text = "Tümü";
-            this.rb_Tum.UseVisualStyleBackColor = true;
-            this.rb_Tum.CheckedChanged += new System.EventHandler(this.rb_Tum_CheckedChanged);
             // 
             // Id
             // 

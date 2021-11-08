@@ -169,6 +169,7 @@ namespace WindowsFormsApp1.OgrIsleri
             // 
             // cmb_bolumAdi
             // 
+            this.cmb_bolumAdi.DisplayMember = "Id";
             this.cmb_bolumAdi.FormattingEnabled = true;
             this.cmb_bolumAdi.Location = new System.Drawing.Point(692, 88);
             this.cmb_bolumAdi.Name = "cmb_bolumAdi";
@@ -178,6 +179,7 @@ namespace WindowsFormsApp1.OgrIsleri
             // 
             // cmb_sehirAdi
             // 
+            this.cmb_sehirAdi.DisplayMember = "id";
             this.cmb_sehirAdi.FormattingEnabled = true;
             this.cmb_sehirAdi.Location = new System.Drawing.Point(692, 121);
             this.cmb_sehirAdi.Name = "cmb_sehirAdi";
