@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\OZER\Source\Repos\CsharpWorms-Mo\WindowsFormsApp1\OgrIsleri\OgrEntity\StudentModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Web ve Mobil Prog\Source\Repos\CsharpWorms-Mo\WindowsFormsApp1\OgrIsleri\OgrEntity\StudentModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

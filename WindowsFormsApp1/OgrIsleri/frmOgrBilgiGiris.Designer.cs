@@ -39,21 +39,22 @@ namespace WindowsFormsApp1.OgrIsleri
             this.label1 = new System.Windows.Forms.Label();
             this.txt_ad = new System.Windows.Forms.TextBox();
             this.txt_soyad = new System.Windows.Forms.TextBox();
-            this.txt_tcNo = new System.Windows.Forms.TextBox();
-            this.txt_ogrNo = new System.Windows.Forms.TextBox();
             this.cmb_bolumAdi = new System.Windows.Forms.ComboBox();
             this.cmb_sehirAdi = new System.Windows.Forms.ComboBox();
             this.btn_temizle = new System.Windows.Forms.Button();
             this.btn_kaydet = new System.Windows.Forms.Button();
             this.liste = new System.Windows.Forms.DataGridView();
+            this.btn_sil = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Soyad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OgrNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tcno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BolumId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SehirId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_sil = new System.Windows.Forms.Button();
+            this.BolumAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sehir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.mtxt_tcNo = new System.Windows.Forms.MaskedTextBox();
+            this.mtxt_ogrNo = new System.Windows.Forms.MaskedTextBox();
             this.pnl_ust.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.liste)).BeginInit();
             this.SuspendLayout();
@@ -153,20 +154,6 @@ namespace WindowsFormsApp1.OgrIsleri
             this.txt_soyad.Size = new System.Drawing.Size(121, 20);
             this.txt_soyad.TabIndex = 8;
             // 
-            // txt_tcNo
-            // 
-            this.txt_tcNo.Location = new System.Drawing.Point(402, 88);
-            this.txt_tcNo.Name = "txt_tcNo";
-            this.txt_tcNo.Size = new System.Drawing.Size(121, 20);
-            this.txt_tcNo.TabIndex = 9;
-            // 
-            // txt_ogrNo
-            // 
-            this.txt_ogrNo.Location = new System.Drawing.Point(402, 116);
-            this.txt_ogrNo.Name = "txt_ogrNo";
-            this.txt_ogrNo.Size = new System.Drawing.Size(121, 20);
-            this.txt_ogrNo.TabIndex = 10;
-            // 
             // cmb_bolumAdi
             // 
             this.cmb_bolumAdi.DisplayMember = "Id";
@@ -179,6 +166,7 @@ namespace WindowsFormsApp1.OgrIsleri
             // 
             // cmb_sehirAdi
             // 
+            this.cmb_sehirAdi.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmb_sehirAdi.DisplayMember = "id";
             this.cmb_sehirAdi.FormattingEnabled = true;
             this.cmb_sehirAdi.Location = new System.Drawing.Point(692, 121);
@@ -216,8 +204,9 @@ namespace WindowsFormsApp1.OgrIsleri
             this.Soyad,
             this.OgrNo,
             this.Tcno,
-            this.BolumId,
-            this.SehirId});
+            this.BolumAdi,
+            this.sehir,
+            this.isActive});
             this.liste.Location = new System.Drawing.Point(67, 212);
             this.liste.MultiSelect = false;
             this.liste.Name = "liste";
@@ -227,11 +216,22 @@ namespace WindowsFormsApp1.OgrIsleri
             this.liste.TabIndex = 15;
             this.liste.DoubleClick += new System.EventHandler(this.liste_DoubleClick);
             // 
+            // btn_sil
+            // 
+            this.btn_sil.Location = new System.Drawing.Point(651, 165);
+            this.btn_sil.Name = "btn_sil";
+            this.btn_sil.Size = new System.Drawing.Size(78, 25);
+            this.btn_sil.TabIndex = 16;
+            this.btn_sil.Text = "Sil";
+            this.btn_sil.UseVisualStyleBackColor = true;
+            this.btn_sil.Click += new System.EventHandler(this.btn_sil_Click);
+            // 
             // Id
             // 
             this.Id.HeaderText = "Sıra No";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // Ad
             // 
@@ -257,41 +257,55 @@ namespace WindowsFormsApp1.OgrIsleri
             this.Tcno.Name = "Tcno";
             this.Tcno.ReadOnly = true;
             // 
-            // BolumId
+            // BolumAdi
             // 
-            this.BolumId.HeaderText = "Bölüm Adı";
-            this.BolumId.Name = "BolumId";
-            this.BolumId.ReadOnly = true;
+            this.BolumAdi.HeaderText = "Bölüm";
+            this.BolumAdi.Name = "BolumAdi";
+            this.BolumAdi.ReadOnly = true;
             // 
-            // SehirId
+            // sehir
             // 
-            this.SehirId.HeaderText = "Şehir Adı";
-            this.SehirId.Name = "SehirId";
-            this.SehirId.ReadOnly = true;
+            this.sehir.HeaderText = "Şehir";
+            this.sehir.Name = "sehir";
+            this.sehir.ReadOnly = true;
             // 
-            // btn_sil
+            // isActive
             // 
-            this.btn_sil.Location = new System.Drawing.Point(651, 165);
-            this.btn_sil.Name = "btn_sil";
-            this.btn_sil.Size = new System.Drawing.Size(78, 25);
-            this.btn_sil.TabIndex = 16;
-            this.btn_sil.Text = "Sil";
-            this.btn_sil.UseVisualStyleBackColor = true;
-            this.btn_sil.Click += new System.EventHandler(this.btn_sil_Click);
+            this.isActive.HeaderText = "Durum";
+            this.isActive.Name = "isActive";
+            this.isActive.ReadOnly = true;
+            this.isActive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.isActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // mtxt_tcNo
+            // 
+            this.mtxt_tcNo.Location = new System.Drawing.Point(402, 85);
+            this.mtxt_tcNo.Mask = "00000000000";
+            this.mtxt_tcNo.Name = "mtxt_tcNo";
+            this.mtxt_tcNo.Size = new System.Drawing.Size(121, 20);
+            this.mtxt_tcNo.TabIndex = 17;
+            // 
+            // mtxt_ogrNo
+            // 
+            this.mtxt_ogrNo.Location = new System.Drawing.Point(402, 115);
+            this.mtxt_ogrNo.Mask = "0000000000";
+            this.mtxt_ogrNo.Name = "mtxt_ogrNo";
+            this.mtxt_ogrNo.Size = new System.Drawing.Size(121, 20);
+            this.mtxt_ogrNo.TabIndex = 18;
             // 
             // frmOgrBilgiGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(937, 465);
+            this.Controls.Add(this.mtxt_ogrNo);
+            this.Controls.Add(this.mtxt_tcNo);
             this.Controls.Add(this.btn_sil);
             this.Controls.Add(this.liste);
             this.Controls.Add(this.btn_kaydet);
             this.Controls.Add(this.btn_temizle);
             this.Controls.Add(this.cmb_sehirAdi);
             this.Controls.Add(this.cmb_bolumAdi);
-            this.Controls.Add(this.txt_ogrNo);
-            this.Controls.Add(this.txt_tcNo);
             this.Controls.Add(this.txt_soyad);
             this.Controls.Add(this.txt_ad);
             this.Controls.Add(this.label1);
@@ -323,20 +337,21 @@ namespace WindowsFormsApp1.OgrIsleri
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_ad;
         private System.Windows.Forms.TextBox txt_soyad;
-        private System.Windows.Forms.TextBox txt_tcNo;
-        private System.Windows.Forms.TextBox txt_ogrNo;
         private System.Windows.Forms.ComboBox cmb_bolumAdi;
         private System.Windows.Forms.ComboBox cmb_sehirAdi;
         private System.Windows.Forms.Button btn_temizle;
         private System.Windows.Forms.Button btn_kaydet;
         private System.Windows.Forms.DataGridView liste;
+        private System.Windows.Forms.Button btn_sil;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Soyad;
         private System.Windows.Forms.DataGridViewTextBoxColumn OgrNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tcno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BolumId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SehirId;
-        private System.Windows.Forms.Button btn_sil;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BolumAdi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sehir;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isActive;
+        private System.Windows.Forms.MaskedTextBox mtxt_tcNo;
+        private System.Windows.Forms.MaskedTextBox mtxt_ogrNo;
     }
 }

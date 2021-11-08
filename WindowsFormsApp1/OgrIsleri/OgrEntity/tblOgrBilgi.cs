@@ -21,6 +21,7 @@ namespace WindowsFormsApp1.OgrIsleri.OgrEntity
         public string OgrNo { get; set; }
         public Nullable<int> BolumId { get; set; }
         public Nullable<int> SehirId { get; set; }
+        public Nullable<bool> isActive { get; set; }
     
         public virtual tbl_sehirler tbl_sehirler { get; set; }
         public virtual tblDeparments tblDeparments { get; set; }

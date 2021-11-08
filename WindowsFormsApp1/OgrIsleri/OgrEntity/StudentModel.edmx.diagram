@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="0dc8f5c32d6549278cedd0769a05b93a" Name="Diagram1">
         <EntityTypeShape EntityType="StudentsModel.tbl_sehirler" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentsModel.tblDeparments" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentsModel.tblDeparments" Width="1.5" PointX="5.625" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="StudentsModel.tblOgrBilgi" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="StudentsModel.FK_tblOgrBilgi_tblSehirler" ManuallyRouted="false" />
         <AssociationConnector Association="StudentsModel.FK_tblOgrBilgi_tblDeparments" ManuallyRouted="false" />

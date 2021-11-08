@@ -19,6 +19,9 @@ namespace WindowsFormsApp1.OgrIsleri
 
         private int secimId = -1;
         private bool edit = false;
+        public int sehirId=-1;
+        public int bolumId=-1;
+
         public frmOgrBilgiGiris()
         {
             InitializeComponent();
@@ -31,16 +34,21 @@ namespace WindowsFormsApp1.OgrIsleri
                 edit = false;
                 txt_ad.Clear();
                 txt_soyad.Clear();
-                txt_tcNo.Clear();
-                txt_ogrNo.Clear();
-                cmb_sehirAdi.SelectedIndex = 0;
-                cmb_bolumAdi.SelectedIndex = 0;
+                mtxt_tcNo.Clear();
+                mtxt_ogrNo.Clear();
+                cmb_sehirAdi.Text = "";
+                cmb_bolumAdi.Text = "";
+
             }
             catch (Exception e)
             {
                 m.Sil(e);
                 Close();
             }
+            secimId = -1;
+            edit = false;
+            sehirId = -1;
+            bolumId = -1;
         }
         private void Listele()
         {
@@ -55,16 +63,27 @@ namespace WindowsFormsApp1.OgrIsleri
                     liste.Rows[i].Cells[0].Value = k.Id;
                     liste.Rows[i].Cells[1].Value = k.Ad;
                     liste.Rows[i].Cells[2].Value = k.Soyad;
-                    liste.Rows[i].Cells[3].Value = k.Tcno;
-                    liste.Rows[i].Cells[4].Value = k.OgrNo;
+                    liste.Rows[i].Cells[3].Value = k.OgrNo;
+                    liste.Rows[i].Cells[4].Value = k.Tcno;
                     liste.Rows[i].Cells[5].Value = k.tblDeparments.BolumAdi;
                     liste.Rows[i].Cells[6].Value = k.tbl_sehirler.sehir;
+                    liste.Rows[i].Cells[7].Value = k.isActive;
                     i++; ;
                 }
                 liste.AllowUserToAddRows = false;
                 liste.AllowUserToDeleteRows = false;
                 liste.AllowUserToOrderColumns = false;
-                //Dropdownlist
+
+                cmb_sehirAdi.DataSource = sdb.tbl_sehirler.ToList();
+                cmb_sehirAdi.ValueMember = "id";
+                cmb_sehirAdi.DisplayMember = "sehir";
+
+                cmb_bolumAdi.DataSource = sdb.tblDeparments.ToList();
+                cmb_bolumAdi.ValueMember = "Id";
+                cmb_bolumAdi.DisplayMember = "BolumAdi";
+
+                cmb_sehirAdi.Text = "";
+                cmb_bolumAdi.Text = "";
             }
             catch (Exception e)
             {
@@ -77,15 +96,16 @@ namespace WindowsFormsApp1.OgrIsleri
             try
             {
                 tblOgrBilgi ogrbilgi = new tblOgrBilgi();
-                tblDeparments tbl = new tblDeparments();
-                tbl_sehirler sehir = new tbl_sehirler();
                 ogrbilgi.Ad = txt_ad.Text;
                 ogrbilgi.Soyad = txt_soyad.Text;
-                ogrbilgi.Tcno = txt_tcNo.Text;
-                ogrbilgi.OgrNo = txt_ogrNo.Text;
-                ogrbilgi.SehirId = cmb_sehirAdi.SelectedIndex;
-                ogrbilgi.BolumId = cmb_bolumAdi.SelectedIndex;
+                ogrbilgi.Tcno = mtxt_tcNo.Text;
+                ogrbilgi.OgrNo = mtxt_ogrNo.Text;
+                //ogrbilgi.SehirId = sehirId;
+                ogrbilgi.SehirId = sdb.tbl_sehirler.First(x => x.sehir == cmb_sehirAdi.Text).id;
+                //ogrbilgi.BolumId = bolumId;
+                ogrbilgi.BolumId = sdb.tblDeparments.First(x => x.BolumAdi == cmb_bolumAdi.Text).Id;
                 //blm.Id =22222;//Hata alabilmek için değiştirdik.
+                ogrbilgi.isActive = true;
                 sdb.tblOgrBilgi.Add(ogrbilgi);
                 sdb.SaveChanges();
                 m.YeniKayit("Yeni Kayıt Oluşturuldu");
@@ -103,13 +123,16 @@ namespace WindowsFormsApp1.OgrIsleri
                 tblOgrBilgi ogrbilgi = sdb.tblOgrBilgi.Find(secimId);
                 ogrbilgi.Ad = txt_ad.Text;
                 ogrbilgi.Soyad = txt_soyad.Text;
-                ogrbilgi.OgrNo = txt_ogrNo.Text;
-                ogrbilgi.Tcno = txt_tcNo.Text;                
-                ogrbilgi.BolumId=cmb_bolumAdi.SelectedIndex;
-                ogrbilgi.SehirId = cmb_sehirAdi.SelectedIndex;
+                ogrbilgi.OgrNo = mtxt_ogrNo.Text;
+                ogrbilgi.Tcno = mtxt_tcNo.Text;
+                //ogrbilgi.SehirId = sehirId;
+                ogrbilgi.SehirId = sdb.tbl_sehirler.First(x => x.sehir == cmb_sehirAdi.Text).id;
+                //ogrbilgi.BolumId = bolumId;
+                ogrbilgi.BolumId = sdb.tblDeparments.First(x => x.BolumAdi == cmb_bolumAdi.Text).Id;
                 sdb.SaveChanges();
                 m.Guncelle(true);
                 //MessageBox.Show("Kayıt Güncelleştirildi");
+                Temizle();
             }
             catch (Exception e)
             {
@@ -134,15 +157,25 @@ namespace WindowsFormsApp1.OgrIsleri
         }
         private void frmOgrBilgiGiris_Load(object sender, EventArgs e)
         {
-            Listele();
-            cmb_sehirAdi.DataSource = sdb.tbl_sehirler.ToList();
-            cmb_sehirAdi.ValueMember = "id";
-            cmb_sehirAdi.DisplayMember = "sehir";
+            //Combobox çağırma
+            //combolar();
 
-            cmb_bolumAdi.DataSource = sdb.tblDeparments.ToList();
-            cmb_bolumAdi.ValueMember = "Id";
-            cmb_bolumAdi.DisplayMember = "BolumAdi";
+            Listele();           
         }
+
+        //private void combolar()
+        //{
+        //    cmb_sehirAdi.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        //    AutoCompleteStringCollection veri = new AutoCompleteStringCollection();
+        //    var lst = sdb.tbl_sehirler.Select(x => x.sehir).Distinct();
+
+        //    foreach (string s in lst)
+        //    {
+        //        veri.Add(s);
+        //        cmb_sehirAdi.Items.Add(s);
+        //    }
+        //    cmb_sehirAdi.AutoCompleteSource = veri;
+        //}
 
         private void btn_temizle_Click(object sender, EventArgs e)
         {
@@ -159,22 +192,27 @@ namespace WindowsFormsApp1.OgrIsleri
             {
                 YeniKayit();
             }
-            Listele();
             Temizle();
+            Listele();
         }
         private void liste_DoubleClick(object sender, EventArgs e)
         {
-            secimId = (int)liste.CurrentRow.Cells[0].Value;
-            txt_ad.Text = liste.CurrentRow.Cells[1].Value.ToString();
-            txt_soyad.Text = liste.CurrentRow.Cells[2].Value.ToString();
-            txt_ogrNo.Text = liste.CurrentRow.Cells[3].Value.ToString();
-            txt_tcNo.Text = liste.CurrentRow.Cells[4].Value.ToString();
-            cmb_bolumAdi.Text = liste.CurrentRow.Cells[5].Value.ToString();
-            cmb_sehirAdi.Text = liste.CurrentRow.Cells[6].Value.ToString();
-            //MessageBox.Show(secimId.ToString());
-            if (secimId > 0)
+            try
             {
                 edit = true;
+                secimId = (int)liste.CurrentRow.Cells[0].Value;
+                txt_ad.Text = liste.CurrentRow.Cells[1].Value.ToString();
+                txt_soyad.Text = liste.CurrentRow.Cells[2].Value.ToString();
+                mtxt_ogrNo.Text = liste.CurrentRow.Cells[3].Value.ToString();
+                mtxt_tcNo.Text = liste.CurrentRow.Cells[4].Value.ToString();
+                cmb_bolumAdi.Text = liste.CurrentRow.Cells[5].Value.ToString();
+                cmb_sehirAdi.Text = liste.CurrentRow.Cells[6].Value.ToString();
+                //MessageBox.Show(secimId.ToString());
+            }
+            catch (Exception)
+            {
+
+                secimId = -1;
             }
         }
 
